@@ -1,0 +1,11 @@
+`timescale 1ns / 1ps
+module Complement(switch,leds);
+input [3:0] switch;
+output [3:0] leds;
+assign leds[0] = switch[0];
+assign leds[1] = switch[0] ^ switch[1];
+assign leds[2] = switch[2] && ~switch[1] && ~switch[0] ||  ~switch[2] && switch[0] || switch[2] && ~switch[1] ;
+assign leds[3] = ~switch[3] && switch[0] || ~switch[3] && switch[1] || ~switch[3] && switch[2] || switch[3] && ~switch[2] && ~switch[1] && ~switch[0];
+endmodule
+
+
